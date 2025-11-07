@@ -66,7 +66,7 @@ PROJECT_APPS = [
     "apps.users",
     "apps.document_type",
     "apps.product",
-    # "apps.payment",
+    "apps.purchase",
 ]
 
 THIRD_APPS = [

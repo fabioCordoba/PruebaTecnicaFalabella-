@@ -1,0 +1,37 @@
+from rest_framework import viewsets, mixins
+from django.shortcuts import render
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework import status
+
+from apps.core.permissions.permissions import IsAdminOrReadOnly, IsSuperOrReadOnly
+from apps.purchase.models.purchase import Purchase
+from apps.purchase.serializers.purchase_serializers import PurchaseSerializer
+
+
+class PurchaseViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet,
+):
+    """
+    API endpoint to list, view, update, and delete loan.
+    """
+
+    permission_classes = [IsAuthenticated, IsSuperOrReadOnly, IsAdminOrReadOnly]
+    queryset = Purchase.objects.filter(is_active=True)
+    serializer_class = PurchaseSerializer
+
+    def destroy(self, request, *args, **kwargs):
+        purchase = self.get_object()
+        purchase.is_active = False
+        purchase.save(update_fields=["is_active"])
+        return Response(
+            {"detail": f"La compra {purchase.code} ha sido desactivado."},
+            status=status.HTTP_200_OK,
+        )
+
