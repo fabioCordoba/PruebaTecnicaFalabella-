@@ -65,7 +65,7 @@ PROJECT_APPS = [
     "apps.core",
     "apps.users",
     "apps.document_type",
-    # "apps.loan",
+    "apps.product",
     # "apps.payment",
 ]
 
