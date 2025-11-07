@@ -5,14 +5,14 @@ from apps.users.models.user import User
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
-    list_display = ("username", "email", "rol", "is_active", "is_staff", "is_superuser")
+    list_display = ("username", "email", "document_type", "document_number", "rol", "is_active", "is_staff", "is_superuser")
     list_filter = ("rol", "is_staff", "is_superuser", "is_active")
 
     fieldsets = (
         (None, {"fields": ("username", "password")}),
         (
             "Personal info",
-            {"fields": ("first_name", "last_name", "email", "image", "rol")},
+            {"fields": ("first_name", "last_name", "email", "image", "rol", "document_type", "document_number")},
         ),
         (
             "Permissions",
