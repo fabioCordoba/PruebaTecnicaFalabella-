@@ -55,4 +55,21 @@ export class App {
 
     this.searchResult.set(`🔍 Buscando compras del usuario con ${type} N° ${number}...`);
   }
+
+  downloadExcel() {
+    const type = this.selectedType();
+    const docNumber = this.documentNumber();
+
+    this.appService.exportPurchasesByDocument(type, docNumber).subscribe({
+      next: (blob) => {
+        const a = window.document.createElement('a'); // 👈 usa window.document
+        const url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = `compras_${docNumber}.xlsx`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      },
+      error: (err) => console.error('Error descargando Excel:', err),
+    });
+  }
 }
