@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalar dependencias (más rápido que npm install)
-RUN npm ci
+RUN npm install
 
 # Copiar el resto del código
 COPY . .
@@ -23,14 +23,14 @@ RUN npm run build
 # =============================
 FROM nginx:alpine
 
+# Elimina la config por defecto de Nginx
+RUN rm -rf /etc/nginx/conf.d/*
+
+# Copiar tu config personalizada
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copiar los archivos compilados al directorio de Nginx
 COPY --from=build /app/dist/app-angular/browser /usr/share/nginx/html
-
-# Eliminar configuraciones default y agregar la nuestra
-RUN rm /etc/nginx/conf.d/default.conf
-
-# Crear archivo de configuración personalizado
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Exponer puerto 80
 EXPOSE 80

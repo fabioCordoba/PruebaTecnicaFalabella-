@@ -1,14 +1,14 @@
 version: "3.7"
 services:
   frontend-angular-fb:
-    image: fabiocordobadev/personal:kmila-app
-    container_name: frontend-angular-kmila
+    image: fabiocordobadev/personal:frontend-Falabella
+    container_name: frontend-angular-fb
     restart: always
     ports:
       - 8092:80
 
   backend-django-fb:
-    image: fabiocordobadev/personal:backend-django-fb
+    image: fabiocordobadev/personal:backend-Falabella
     container_name: backend-django-fb
     restart: always
     ports:
