@@ -23,7 +23,7 @@ class DocumentTypeViewSet(
     API endpoint to list, view, update, and delete loan.
     """
 
-    permission_classes = [IsAuthenticated, IsSuperOrReadOnly, IsAdminOrReadOnly]
+    # permission_classes = [IsAuthenticated, IsSuperOrReadOnly, IsAdminOrReadOnly]
     queryset = DocumentType.objects.filter(is_active=True)
     serializer_class = DocuemntTypeSerializer
 
