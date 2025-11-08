@@ -36,4 +36,27 @@ export class AppService {
       })
     );
   }
+
+  /** 🔹 Buscar compras por tipo y número de documento y exportar excel*/
+  exportPurchasesByDocument(type: string, document: string): Observable<Blob> {
+    console.log(type, document);
+
+    const url = `${this.baseUrl}/api/export-excel/`;
+    const params = {
+      document_type: type,
+      document_number: document,
+    };
+
+    return this.http
+      .get(url, {
+        params,
+        responseType: 'blob',
+      })
+      .pipe(
+        catchError((error) => {
+          console.error('Error al exportar compras:', error);
+          return throwError(() => new Error(error.message || 'Error al exportar compras'));
+        })
+      );
+  }
 }

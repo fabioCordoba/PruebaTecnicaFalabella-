@@ -19,6 +19,7 @@ djangorestframework==3.16.1
 djangorestframework_simplejwt==5.5.1
 drf-yasg==1.21.10
 ecdsa==0.19.1
+et_xmlfile==2.0.0
 flower==2.0.1
 humanize==4.13.0
 inflection==0.5.1
@@ -26,6 +27,7 @@ isort==6.0.1
 kombu==5.5.4
 MarkupSafe==3.0.2
 mccabe==0.7.0
+openpyxl==3.1.5
 packaging==25.0
 pillow==11.3.0
 platformdirs==4.3.8
