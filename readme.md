@@ -1,8 +1,4 @@
-Perfecto ✅ Aquí tienes una **documentación en formato Markdown (`README.md`)** para tu backend en **Django**, que incluye autenticación de usuarios, tipos de documento, productos, compras y una búsqueda de compras por documento de identidad:
 
----
-
-```markdown
 # 🛒 Backend de Tienda - Django REST Framework
 
 Este proyecto implementa un backend en **Django + Django REST Framework** para la gestión de usuarios, tipos de documentos, productos y compras.  
@@ -121,10 +117,24 @@ python manage.py runserver
 
 ---
 
-### 7️⃣ Accede a la documentacion
+### 8️⃣ Accede a la documentacion
 
 ```bash
 http://127.0.0.1:8000/docs/
+```
+
+### 9️⃣ Accede a produccion
+
+* Api Rest : https://backendfalabella.fabiocordoba.me/
+* Docuementacion Swagger: https://backendfalabella.fabiocordoba.me/docs/
+* Admin Django: https://backendfalabella.fabiocordoba.me/admin/
+
+###  credenciales para el admin 
+```json
+{
+  "email": "fabiocordoba1@gmail.com",
+  "password": "admin"
+}
 ```
 
 ---
@@ -313,20 +323,45 @@ http://127.0.0.1:8000/docs/
 
 ---
 
+## 🧩 Frontend – Consulta de Compras
+
+Esta aplicación frontend, desarrollada con **Angular 20**, permite consultar las compras registradas de un cliente a través de su documento de identidad.
+El sistema consume los endpoints del backend desarrollados en **Django REST Framework**, encargados de gestionar los tipos de documento y las compras asociadas a cada usuario.
+
+### 🚀 Funcionalidades principales
+
+* **Listado de tipos de documento:**
+  La aplicación consume el endpoint `/api/document_type/` para mostrar las opciones disponibles (por ejemplo: Cédula de Ciudadanía, Pasaporte, etc.).
+
+* **Búsqueda de compras por documento:**
+  Permite al usuario ingresar su tipo y número de documento para consultar las compras asociadas, a través del endpoint `/api/purchases/by_document/`.
+
+### 🧠 Tecnologías utilizadas
+
+* **Angular 20.3.9** con componentes standalone y signals.
+* **TypeScript** y **RxJS** para manejo reactivo de datos.
+* **HTTPClient** para la comunicación con el backend.
+* **Docker + Nginx** para despliegue en producción.
+
+### 🌐 Despliegue
+
+La aplicación se encuentra desplegada y accesible públicamente en:
+🔗 [https://frontendfalabella.fabiocordoba.me](https://frontendfalabella.fabiocordoba.me)
+
+### ⚙️ Flujo de uso
+
+1. El usuario accede a la aplicación web.
+2. Selecciona su tipo de documento desde el menú desplegable.
+3. Ingresa su número de documento.
+4. Al presionar **Buscar**, el sistema consulta el backend y muestra las compras registradas.
+
 ## 🧑‍💻 Autor
 
 **Fabio Córdoba**
-📧 [fabio@example.com](mailto:fabio@example.com)
+📧 [fabiocordoba1@gmail.com](fabiocordoba1@gmail.com)
 💼 [LinkedIn](https://linkedin.com/in/fabiocordoba)
 💻 Desarrollador Backend | Django | API REST | Automatización
 
 ---
 
-## 📝 Frontend
 
-...
-
-```
-
----
-```
