@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  backend-django-fb:
+    image: fabiocordobadev/personal:backend-Falabella
+    container_name: backend-django-fb
+    restart: always
+    ports:
+      - 8091:8000
+    networks:
+      - fb-network
+    
+networks:
+  fb-network:

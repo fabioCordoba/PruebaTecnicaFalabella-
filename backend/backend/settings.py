@@ -34,16 +34,17 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "fabiocordoba.me",
-    "prb.fabiocordoba.me",
+    "backendfalabella.fabiocordoba.me",
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "https://fabiocordoba.me",
-    "https://prb.fabiocordoba.me",
+    "https://backendfalabella.fabiocordoba.me",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://prb.fabiocordoba.me",
+    "https://fabiocordoba.me",
+    "https://backendfalabella.fabiocordoba.me",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
